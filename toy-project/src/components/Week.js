@@ -14,7 +14,9 @@ function Week ({setTimeList})  {
         const tmpList = []
         for (let i=sDate-sDay ; i < sDate+7-sDay ; i++){
         const tmpday = new Date(sYear,sMonth,i)
-        tmpList.push([tmpday.getFullYear(), tmpday.getMonth()+1, tmpday.getDate()])
+        tmpList.push([tmpday.getFullYear(), "0" + (tmpday.getMonth()+1), 
+        tmpday.getDate()]
+        )
         }
         setTimeList(tmpList)
     },[standTime])
