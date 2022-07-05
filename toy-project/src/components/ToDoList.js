@@ -4,10 +4,9 @@ import ToDoItem from "./ToDoItem.js"
 function Todos({timeList}){
     // localStorage에서 데이터 가져오기
     // data = todos = {"20220630": {"todo": ['ss', 'b', 'c']},}
-    const [data, setData] = useState({"dsaf":"1234"})
+    const [data, setData] = useState({})
 
     useEffect(() => {
-      console.log(data)
       try {
         setData(JSON.parse(localStorage.getItem("todos")))
       } catch {

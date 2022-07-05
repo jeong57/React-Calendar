@@ -1,4 +1,5 @@
-import {useEffect, useState, useRef} from "react";
+import { useState, useRef} from "react";
+
 
 function ToDoItem({times, dataKey, data, setData}) {
     const intId = useRef(0);
@@ -32,16 +33,12 @@ function ToDoItem({times, dataKey, data, setData}) {
           ...data[dataKey] 
         ]
       } catch {
-        setData({})
-        // const day = dataKey
-        // data.day = [obj]
-        data[dataKey] = [obj]
-        // [data.dataKey] = [obj]
+        data = {
+          [dataKey] : [obj],
+          ...data
+        }
       }
-      // else {
-      //     // props.data[dataKey] = [value]
-      //   data.dataKey = [obj]
-      // }
+
       setData(data)
       localStorage.setItem("todos", JSON.stringify(data));
       setValue('');
@@ -62,5 +59,6 @@ function ToDoItem({times, dataKey, data, setData}) {
     </div>
   )
 };
+
 
 export default ToDoItem;
