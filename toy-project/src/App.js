@@ -10,7 +10,7 @@ function App() {
     <div>
       <h1>Hi my Calender</h1>
       <Week setTimeList={setTimeList} />
-      <ToDoList timeList={timeList}/>
+      <ToDoList timeList={timeList} />
       <Footer />
     </div>
   );

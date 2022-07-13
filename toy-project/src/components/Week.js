@@ -14,8 +14,8 @@ function Week ({setTimeList})  {
         const tmpList = []
         for (let i=sDate-sDay ; i < sDate+7-sDay ; i++){
         const tmpday = new Date(sYear,sMonth,i)
-        tmpList.push([tmpday.getFullYear(), "0" + (tmpday.getMonth()+1), 
-        tmpday.getDate()]
+        tmpList.push([tmpday.getFullYear(), String(tmpday.getMonth()+1).padStart(2,'0'), 
+        String(tmpday.getDate()).padStart(2,'0')]
         )
         }
         setTimeList(tmpList)
@@ -28,8 +28,6 @@ function Week ({setTimeList})  {
     return (
     <div className="Week">
         <Calendar onChange={onChange} onClickDay={(date) => changeDay(date) } />
-        
-        
     </div>
     );
 }
