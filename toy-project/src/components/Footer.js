@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <footer style={{"textAlign": "center"}}>Copyright 2022, minjeong kim geonyoung heo hyejin bae</footer>
+    <footer style={{"textAlign": "center"}}>Copyright 2022 MinJeong Kim, GeonNyung Heo, HyeJin Bae</footer>
   )
 };
 
