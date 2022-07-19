@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import "./ToDoItem.css"
 import styled from "styled-components";
 
 const Item = styled.span`

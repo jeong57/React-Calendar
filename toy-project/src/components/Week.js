@@ -23,10 +23,11 @@ function Week ({setTimeList})  {
 
     const changeDay = (date) => {
         setStandTime(date)
-    }
+    } 
 
     return (
     <div className="Week">
+        <h2>Description</h2>
         <Calendar onChange={onChange} onClickDay={(date) => changeDay(date) } />
     </div>
     );
