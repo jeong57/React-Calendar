@@ -8,14 +8,14 @@ const FlexBox = styled.div`
   gap: 5px 5px;
   grid-template-columns : repeat(7, 1fr);
   @media ${props => props.theme.desktop} { 
-    grid-template-rows : repeat(2, 500px);
+    grid-template-rows : repeat(2, 1fr);
     grid-template-columns : repeat(4, 1fr);
   }
   //tablet
   @media ${props => props.theme.tablet} {
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr;
     grid-template-columns: 1fr;
-    gap: 5px 5px;
+    gap: 10px 5px;
   }
 `
 
@@ -41,7 +41,9 @@ function Todos({timeList}){
 
     return (
       <div className="Todos">
-        { timeList.length > 0 ? <p>{timeList[0][0]}년</p> : null}
+        <h2>
+          { timeList.length > 0 ? <p>{timeList[0][0]}년</p> : null}
+        </h2>
         <FlexBox>
           {timeList.map((times, idx)=> {
             const dataKey = String(times[0]) + String(times[1]) + String(times[2])

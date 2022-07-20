@@ -10,7 +10,21 @@ const Item = styled.span`
 `
 const Button = styled.button`
   cursor : pointer;
+  border : none;
 `
+const Input = styled.input` 
+  border: none; 
+  background-color:beige;
+  width : 15vh; 
+  `
+
+const Box = styled.div`
+  border : solid 1px ;
+  border-radius : 5px;
+  height : 200px;
+  box-shadow : 1px 3px 10px 3px  #dcdde1; 
+`
+
 
 function ToDoItem({times, dataKey, data, setData, count, setCount}) {
     // {
@@ -33,7 +47,7 @@ function ToDoItem({times, dataKey, data, setData, count, setCount}) {
       if (value.trim()) {
         const obj = {
           key : count,
-          todo : value,
+          todo : value.trim(),
           isFinished : false,
         }
         try { 
@@ -84,16 +98,16 @@ function ToDoItem({times, dataKey, data, setData, count, setCount}) {
     }
   
   return (
-    <div>
+    <Box>
       <li>{times[1]}월 {times[2]}일</li>
       <form onSubmit={event => createTodo(event)}>
-        <input 
+        <Input 
           value = {value}
           onChange={changeValue}
           type="text" 
           placeholder="할 일"
         />
-        <Button onClick={event => createTodo(event)}>저장</Button>
+        <Button onClick={event => createTodo(event)}>✏️</Button>
       </form>
       <div>
         { data && data[dataKey] ? data[dataKey].map((todo) => {
@@ -111,9 +125,8 @@ function ToDoItem({times, dataKey, data, setData, count, setCount}) {
           )
         }) : null}
       </div>
-    </div>
+    </Box>
   )
 };
-
 
 export default ToDoItem;
