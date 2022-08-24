@@ -68,16 +68,15 @@ function ToDoItem({times, dataKey, data, setData, count, setCount}) {
 
     // 남은 할 일 개수 update
     useEffect(() => {
+      setTodoNum(0)
       if (data && data[dataKey]) {
         data[dataKey].map((todo) => {
           if (todo.isFinished) {
-          }
-          else {
             setTodoNum(val => val + 1)
           }
         })
       }
-    }, [])
+    }, times)
 
     // todo의 key 값으로 쓸 count
     useEffect(() => {
