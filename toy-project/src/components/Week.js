@@ -16,6 +16,8 @@ const Content = styled.div`
     font-family: ${props => props.theme.contentFont};
 `
 
+
+
 function Week ({setTimeList})  {
     const [value, onChange] = useState(new Date());
     const [standTime, setStandTime] = useState(value)
@@ -47,11 +49,12 @@ function Week ({setTimeList})  {
             <Content>자유롭게 이용해보세요!</Content>
         </div>
         <Calendar onChange={onChange} onClickDay={(date) => changeDay(date) } />
-        <Title style={{margin: "2rem 0 0.5rem 0"}}>Emotion Calendar</Title>
+        <Title style={{margin: "3rem 0 0.5rem 0"}}>Emotion Calendar</Title>
         <div style={{margin: '0 2rem 1.5rem 0'}}>
             <Content>오늘의 감정을 기록해보세요!</Content>
             <Content>색을 보고 나의 기분을 확인할 수 있어요.</Content>
         </div>
+        <div style={{border: "solid 0.3px", width: "350px", height: "272px", marginBottom: "1.5rem"}}></div>
     </div>
     );
 }
