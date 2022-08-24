@@ -1,52 +1,70 @@
-# Calendar Toy Project
+# Getting Started with Create React App
 
-> * 6월 ~ 6/30일 : 김민정, 배혜진, 허건녕
-> * 8/24 ~ : 김민정
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Available Scripts
 
+In the project directory, you can run:
 
-## 활용 프로그램
+### `npm start`
 
-* notion: https://www.notion.so/ebb2d4c0e14740e4b9d4ed5b7a074f26?v=f0acc4d995eb461f923134012af58769
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-* GitHub: https://github.com/jeong57/React-Calendar
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
+### `npm test`
 
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## 일정 진행
+### `npm run build`
 
-* 6월: 할 일 CRUD, 반응형 구현
-* 7월 ~ 8월: SSAFY 공통 프로젝트 진행
-* 8/24 ~ 8/31: 감정달력
-* 9/1 ~ 9/10: 디자인
-* 9/11 ~ 9/15: WebView apk 생성
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-## 테마
+### `npm run eject`
 
-* 레트로
-* 빨간색: \#DE1B1B
-* 폰트: 눈누 '티몬 몬소리체'
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-## 기능
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-1. 할 일
-   1. 할 일 조회
-   2. 할 일 생성
-   3. 할 일 수정
-   4. 할 일 완료처리
-   5. 할 일 삭제
-2. 감정 달력
-   1. 감정 입력하기
-   2. 감정 변경하기
-   3. 감정 삭제하기
-3. mini game
-4. WebView
+## Learn More
 
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
+To learn React, check out the [React documentation](https://reactjs.org/).
 
+### Code Splitting
 
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
