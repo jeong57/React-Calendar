@@ -1,6 +1,16 @@
+import styled from "styled-components";
+
+const Text = styled.div`
+  text-align: center;
+  margin: 1rem;
+  font-size: 12px;
+  position: relative;
+  bottom: 0%;
+`
+
 function Footer() {
   return (
-    <footer style={{"textAlign": "center", margin: '1rem', fontSize: '12px', position: "relative", bottom: 0 }}>Copyright 2022 MinJeong Kim, GeonNyung Heo, HyeJin Bae</footer>
+    <Text>Copyright 2022 MinJeong Kim, HyeJin Bae, GeonNyung Heo</Text>
   )
 };
 

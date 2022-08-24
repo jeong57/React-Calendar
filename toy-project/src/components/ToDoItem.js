@@ -3,36 +3,60 @@ import styled from "styled-components";
 
 const Item = styled.span`
   text-decoration-line: ${ props => props.isFinished };
+  font-family: ${props => props.theme.itemFont};
   color : ${ props => props.color };
+  margin-right: 0.8rem;
   :hover {
     cursor : pointer;
   }
 `
-const Button = styled.button`
-  cursor : pointer;
-  border : none;
-`
-const Input = styled.input` 
-  border: none; 
-  background-color:beige;
-  width : 15vh; 
-  `
 
 const Box = styled.div`
-  border : solid 1px ;
   border-radius : 5px;
   height : 200px;
   box-shadow : 1px 3px 10px 3px  #dcdde1; 
+  padding: 0.8rem;
+  background-color: white;
+  display: grid;
+  grid-template-rows: 1fr 1fr 4fr;
+  .todo-title {
+    font-size: 20px;
+    font-family: ${props => props.theme.titleFont};
+    @media ${props => props.mobile} {
+      font-size: 18px;
+    }
+  }
+  .todo-input {
+    border: none; 
+    background-color: beige;
+    margin-right: 10px;
+    padding: 5px;
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    font-family: ${props => props.theme.itemFont};
+  }
+  .write-icon {
+    color: #BA2525;
+    :hover {
+      cursor: pointer;
+    }
+  }
+  .todo-content-box {
+    padding: 0.5rem 0;
+    overflow-y: scroll;
+    .delete-icon {
+      color: gray;
+      :hover {
+        cursor: pointer;
+        color: #DE1B1B;
+      }
+    }
+  }
 `
 
 
 function ToDoItem({times, dataKey, data, setData, count, setCount}) {
-    // {
-      //   20220705 : [
-        //   {key:2, todo : value, isFinished : false,},
-        //   {key:3, todo2: value, isFinished: false}
-        //  ]
-        // }
     const [value, setValue] = useState('');
     const changeValue = e => setValue(e.target.value);
 
@@ -99,28 +123,28 @@ function ToDoItem({times, dataKey, data, setData, count, setCount}) {
   
   return (
     <Box>
-      <li>{times[1]}월 {times[2]}일</li>
-      <form onSubmit={event => createTodo(event)}>
-        <Input 
+      <div className="todo-title">{times[0]}년 {times[1]}월 {times[2]}일</div>
+      <form onSubmit={event => createTodo(event)} style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
+        <input
+          className="todo-input"
           value = {value}
           onChange={changeValue}
           type="text" 
-          placeholder="할 일"
+          placeholder="할 일을 적어주세요"
         />
-        <Button onClick={event => createTodo(event)}>✏️</Button>
+        <i className="fa-solid fa-feather-pointed write-icon" onClick={event => createTodo(event)}></i>
       </form>
-      <div>
+      <div className="todo-content-box">
         { data && data[dataKey] ? data[dataKey].map((todo) => {
           return (
-            <div key={todo.key}>
-              <Button onClick={(event) => deleteTodo(event, todo.key)}>x</Button>
+            <div key={todo.key} style={{margin: "10px 5px"}}>
               <Item 
                 isFinished={ todo.isFinished ? 'line-through' : 'none' }
                 color={todo.isFinished ? 'gray' : 'black' }
                 onClick={(event) => updateTodo(event, todo.key)}
               >{todo.todo}
               </Item>
-              
+              <i onClick={(event) => deleteTodo(event, todo.key)} className="delete-icon fa-solid fa-trash-can"></i>
             </div>
           )
         }) : null}

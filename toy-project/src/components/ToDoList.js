@@ -2,14 +2,24 @@ import {useState, useEffect} from "react";
 import ToDoItem from "./ToDoItem.js"
 import styled from "styled-components";
 
+const Title = styled.div`
+    font-family: ${props => props.theme.titleFont};
+    font-size: 30px;
+    margin: 1rem 0 0.5rem 0;
+    @media ${props => props.theme.mobile} {
+        font-size: 20px;
+    }
+`
+
 const FlexBox = styled.div`
-  //desktop
   display: grid;
-  gap: 5px 5px;
+  gap: 10px;
   grid-template-columns : repeat(7, 1fr);
+  //desktop
   @media ${props => props.theme.desktop} { 
     grid-template-rows : repeat(2, 1fr);
     grid-template-columns : repeat(4, 1fr);
+    gap: 10px 10px;
   }
   //tablet
   @media ${props => props.theme.tablet} {
@@ -41,9 +51,9 @@ function Todos({timeList}){
 
     return (
       <div className="Todos">
-        <h2>
+        <Title>
           { timeList.length > 0 ? <p>{timeList[0][0]}년</p> : null}
-        </h2>
+        </Title>
         <FlexBox>
           {timeList.map((times, idx)=> {
             const dataKey = String(times[0]) + String(times[1]) + String(times[2])

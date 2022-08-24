@@ -1,6 +1,20 @@
 import { useState, useEffect } from "react";
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import styled from "styled-components";
+
+
+const Title = styled.div`
+    font-family: ${props => props.theme.titleFont};
+    font-size: 30px;
+    margin: 1rem 0 0.5rem 0;
+    @media ${props => props.theme.mobile} {
+        font-size: 20px;
+    }
+`
+const Content = styled.div`
+    font-family: ${props => props.theme.contentFont};
+`
 
 function Week ({setTimeList})  {
     const [value, onChange] = useState(new Date());
@@ -26,9 +40,18 @@ function Week ({setTimeList})  {
     } 
 
     return (
-    <div className="Week">
-        <h2>Description</h2>
+    <div>
+        <Title>Description</Title>
+        <div style={{margin: '0 2rem 1.5rem 0'}}>
+            <Content>이 프로젝트는 2022년 6월부터 진행된 프로젝트로, 할 일을 관리하며 매일의 감정을 기록할 수 있습니다.</Content>
+            <Content>자유롭게 이용해보세요!</Content>
+        </div>
         <Calendar onChange={onChange} onClickDay={(date) => changeDay(date) } />
+        <Title style={{margin: "2rem 0 0.5rem 0"}}>Emotion Calendar</Title>
+        <div style={{margin: '0 2rem 1.5rem 0'}}>
+            <Content>오늘의 감정을 기록해보세요!</Content>
+            <Content>색을 보고 나의 기분을 확인할 수 있어요.</Content>
+        </div>
     </div>
     );
 }
