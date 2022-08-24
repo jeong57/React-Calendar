@@ -2,7 +2,6 @@
 
 const size = {
   mobile : '650px',
-  // tablet : '992px',
   tablet : '1150px',
   desktop : '1900px',
   full: '2000px',

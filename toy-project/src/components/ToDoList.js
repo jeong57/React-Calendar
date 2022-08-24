@@ -57,7 +57,15 @@ function Todos({timeList}){
         <FlexBox>
           {timeList.map((times, idx)=> {
             const dataKey = String(times[0]) + String(times[1]) + String(times[2])
-            return <ToDoItem times={times} dataKey={dataKey} data={data} setData={changeData} key={idx} count={count} setCount={setCount}/>
+            return <ToDoItem 
+              key={idx} 
+              times={times} 
+              dataKey={dataKey} 
+              data={data} 
+              setData={changeData} 
+              count={count} 
+              setCount={setCount}
+              />
             })
           }
         </FlexBox>

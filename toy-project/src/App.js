@@ -13,14 +13,13 @@ const GridBox = styled.div`
   grid-gap: 16px;
   background-image: ${props => props.theme.bgColor};
   @media ${props => props.theme.mobile} {
-    grid-template-rows: 1fr 4fr;
+    grid-template-rows: 1fr 3fr;
     grid-template-columns: 1fr;
     grid-gap: 10px;
   }
 `
 
 const Container = styled.div`
-  height : 100vh;
   margin: 1rem 0;
   .title {
     font-family: ${props => props.theme.titleFont};

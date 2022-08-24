@@ -18,7 +18,12 @@ const Box = styled.div`
   padding: 0.8rem;
   background-color: white;
   display: grid;
-  grid-template-rows: 1fr 1fr 4fr;
+  grid-template-rows: 1fr 1fr 1fr 4fr;
+  .todo-num {
+    font-size: 13px;
+    font-family: ${props => props.theme.itemFont};
+    color: gray;
+  }
   .todo-title {
     font-size: 20px;
     font-family: ${props => props.theme.titleFont};
@@ -28,7 +33,7 @@ const Box = styled.div`
   }
   .todo-input {
     border: none; 
-    background-color: beige;
+    background-color: rgba(255, 100, 0, 0.1);
     margin-right: 10px;
     padding: 5px;
     height: 100%;
@@ -58,7 +63,21 @@ const Box = styled.div`
 
 function ToDoItem({times, dataKey, data, setData, count, setCount}) {
     const [value, setValue] = useState('');
+    const [todoNum, setTodoNum] = useState(0);
     const changeValue = e => setValue(e.target.value);
+
+    // 남은 할 일 개수 update
+    useEffect(() => {
+      if (data && data[dataKey]) {
+        data[dataKey].map((todo) => {
+          if (todo.isFinished) {
+          }
+          else {
+            setTodoNum(val => val + 1)
+          }
+        })
+      }
+    }, [])
 
     // todo의 key 값으로 쓸 count
     useEffect(() => {
@@ -79,6 +98,7 @@ function ToDoItem({times, dataKey, data, setData, count, setCount}) {
             obj,
             ...data[dataKey] 
           ]
+          setTodoNum((val) => val+1)
         } catch {
           data = {
             [dataKey] : [obj],
@@ -101,7 +121,6 @@ function ToDoItem({times, dataKey, data, setData, count, setCount}) {
       const changedTodos = data[dataKey].map((day) => {
         if (day.key === key) {
           day.isFinished = !day.isFinished
-          console.log(day.isFinished)
         } return day
       })
       data[dataKey] = changedTodos
@@ -120,10 +139,12 @@ function ToDoItem({times, dataKey, data, setData, count, setCount}) {
       localStorage.setItem('todos', JSON.stringify(data))
       window.location.reload()
     }
-  
+
+    
   return (
     <Box>
       <div className="todo-title">{times[0]}년 {times[1]}월 {times[2]}일</div>
+      <div className="todo-num">{todoNum}개 / {data && data[dataKey] ? data[dataKey].length : 0}개</div>
       <form onSubmit={event => createTodo(event)} style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
         <input
           className="todo-input"
